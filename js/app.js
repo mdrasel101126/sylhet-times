@@ -34,6 +34,22 @@ const loadNews = async (categoryId) => {
   }
 };
 
+const getValue = (value) => {
+  if (value !== null) {
+    return value;
+  }
+  return "Unknown";
+};
+const getView = (value) => {
+  value = parseInt(value);
+  console.log(value);
+  if (value >= 0) {
+    return value;
+  } else {
+    return "Unknown";
+  }
+};
+
 const displayNews = (allNews) => {
   console.log(allNews);
   const newsNumber = document.getElementById("news-number");
@@ -43,33 +59,42 @@ const displayNews = (allNews) => {
     return b.total_view - a.total_view;
   });
   allNews.forEach((news) => {
+    console.log(news);
     const newsDiv = document.createElement("div");
     newsDiv.innerHTML = `
     <div class="row g-3 bg-white rounded my-3 shadow">
-    <div class="col-4 p-2">
+    <div class="col-sm-12 col-lg-4 p-2">
         <img class="img-fluid  rounded" src=${news.image_url} alt="">
     </div>
-    <div class="col-8 p-2">
+    <div class="col-sm-12 col-lg-8 p-2">
         <h4>${news.title}</h4>
         <p class="text-black-50">${
           news.details.length > 400
             ? news.details.slice(0, 400) + "..."
             : news.details
         }</p>
-        <div class="row row-cols-4 gx-5 mt-3 w-100">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gx-5 mt-3 w-100">
             <div class="d-flex">
                 <div class="align-self-center">
                     <img class="author-image" src=${news.author.img} alt="">
                 </div>
                 <div class="mx-1 align-self-center">
-                    <span>${news.author.name}</span>
-                    <p class="text-black-50">${news.author.published_date}</p>
+                    <span>${
+                      news.author.name
+                        ? getValue(news.author.name)
+                        : "Unknown Author"
+                    }</span>
+                    <p class="text-black-50">${
+                      news.author.published_date
+                        ? getValue(news.author.published_date)
+                        : "Unknown Date"
+                    }</p>
                 </div>
             </div>
             <div class="text-center align-self-center">
-               <p><span><i class="fa-regular fa-eye"></i></span><span> ${
+               <p><span><i class="fa-regular fa-eye"></i></span><span> ${getView(
                  news.total_view
-               } Views</span></p>
+               )} Views</span></p>
             </div>
             <div class="text-center align-self-center">
                 <p>Rating: ${news.rating.number}</p>
