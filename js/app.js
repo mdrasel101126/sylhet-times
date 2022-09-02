@@ -28,10 +28,16 @@ const loadNews = async (categoryId) => {
   try {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
+    displayNews(data.data);
   } catch (error) {
     console.log(error);
   }
+};
+
+const displayNews = (news) => {
+  console.log(news);
+  const newsNumber = document.getElementById("news-number");
+  newsNumber.innerText = `Total ${news.length} news found`;
 };
 
 loadNewsCategories();
