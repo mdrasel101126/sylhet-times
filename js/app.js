@@ -52,9 +52,9 @@ const getView = (value) => {
 const displayNews = (allNews) => {
   const newsNumber = document.getElementById("news-number");
   if (allNews.length === 0) {
-    newsNumber.innerText = "No news found";
+    newsNumber.innerText = "No news found!!!";
   } else {
-    newsNumber.innerText = `Total ${allNews.length} news found!!!`;
+    newsNumber.innerText = `Total ${allNews.length} news found`;
   }
   const newsContainer = document.getElementById("news-container");
   newsContainer.innerHTML = "";
