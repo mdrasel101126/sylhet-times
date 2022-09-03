@@ -42,7 +42,7 @@ const getValue = (value) => {
 };
 const getView = (value) => {
   value = parseInt(value);
-  console.log(value);
+  // console.log(value);
   if (value >= 0) {
     return value;
   } else {
@@ -59,7 +59,7 @@ const displayNews = (allNews) => {
     return b.total_view - a.total_view;
   });
   allNews.forEach((news) => {
-    console.log(news);
+    //console.log(news);
     const newsDiv = document.createElement("div");
     newsDiv.innerHTML = `
     <div class="row g-3 bg-white rounded my-3 shadow">
@@ -100,7 +100,9 @@ const displayNews = (allNews) => {
                 <p>Rating: ${news.rating.number}</p>
             </div>
             <div class="text-center align-self-center">
-                <button type="button" class="btn btn-primary">Details</button>
+                <button onclick="loadDetails('${
+                  news._id
+                }')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showDetailModal">Details</button>
             </div>
         </div>
     </div>
@@ -108,6 +110,26 @@ const displayNews = (allNews) => {
     `;
     newsContainer.appendChild(newsDiv);
   });
+};
+
+const loadDetails = async (newId) => {
+  const url = `https://openapi.programming-hero.com/api/news/${newId}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    displayDetails(data.data[0]);
+  } catch (error) {
+    console.log(error);
+  }
+};
+const displayDetails = (detail) => {
+  console.log(detail);
+  const showDetailModalLabel = document.getElementById("showDetailModalLabel");
+  const modalBody = document.getElementById("modal-body");
+  const publishedDate = document.getElementById("published-date");
+  showDetailModalLabel.innerText = detail.title;
+  modalBody.innerText = detail.details;
+  publishedDate.innerText = detail.author.published_date;
 };
 
 loadNewsCategories();
