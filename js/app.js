@@ -51,7 +51,11 @@ const getView = (value) => {
 
 const displayNews = (allNews) => {
   const newsNumber = document.getElementById("news-number");
-  newsNumber.innerText = `Total ${allNews.length} news found`;
+  if (allNews.length === 0) {
+    newsNumber.innerText = "No news found";
+  } else {
+    newsNumber.innerText = `Total ${allNews.length} news found!!!`;
+  }
   const newsContainer = document.getElementById("news-container");
   newsContainer.innerHTML = "";
   allNews.sort((a, b) => {
