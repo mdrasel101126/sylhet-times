@@ -130,11 +130,23 @@ const displayDetails = (detail) => {
   const showDetailModalLabel = document.getElementById("showDetailModalLabel");
   const modalBody = document.getElementById("modal-body");
   const publishedDate = document.getElementById("published-date");
+  const modalImage = document.getElementById("modal-image");
+  const authorDetails = document.getElementById("author-details");
+  const totalView = document.getElementById("total-view");
+  modalImage.innerHTML = `<img class="img-fluid  rounded" src=${detail.image_url} alt="">`;
   showDetailModalLabel.innerText = detail.title;
   modalBody.innerText = detail.details;
   publishedDate.innerText = detail.author.published_date
     ? detail.author.published_date
     : "Unknown Date";
+  authorDetails.innerHTML = `<img class="author-image" src=${
+    detail.author.img
+  } alt="">
+  <span>${
+    detail.author.name ? getValue(detail.author.name) : "Unknown Author"
+  }</span>
+  `;
+  totalView.innerText = ` Total Views: ${getView(detail.total_view)}`;
 };
 
 const toggleSpinner = (isLoading) => {

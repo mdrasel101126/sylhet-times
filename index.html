@@ -27,10 +27,10 @@
                         <a class="nav-link" href="blogs.html">Blogs</a>
                       </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                      </form>
+                    <div class="d-flex" role="search">
+                        <input class="form-control me-2 disabled" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success disabled" type="submit">Search</button>
+                    </div>
                 </div>
           </nav>
           <hr>
@@ -72,8 +72,13 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <p id="modal-body"></p>
-                    <p>Published Date: <span id="published-date"></span></p>
+                        <div id="modal-image"></div>
+                        <p id="modal-body"></p>
+                        <p>Published Date: <span id="published-date"></span></p>
+                        <div id="author-details">
+
+                        </div>
+                        <p id="total-view"></p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -94,38 +99,3 @@
 <script src="js/app.js"></script>
 </body>
 </html>
-
-
-<!-- <div>
-                <div class="row g-3 bg-white rounded my-4 shadow">
-                    <div class="col-4 p-2">
-                        <img class="img-fluid  rounded" src="images/IMG_20220504_115709.jpg" alt="">
-                    </div>
-                    <div class="col-8 p-2">
-                        <h4>The best fashion influencers to follow for sartorial inspiration</h4>
-                        <p class="text-black-50">From our favourite UK influencers to the best missives from Milan and the coolest New Yorkers, read on some of the best fashion blogs out there, and for even more inspiration, do head to our separate black fashion influencer round-up.</p>
-
-                        <p class="text-black-50">Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS Black Friday, Missoma Black Friday and Gucci Black Friday...</p>
-                        <div class="row row-cols-4 gx-5 mt-3 w-100">
-                            <div class="d-flex">
-                                <div class="align-self-center">
-                                    <img class="author-image" src="images/IMG_20220504_115849.jpg" alt="">
-                                </div>
-                                <div class="mx-1 align-self-center">
-                                    <small>Rasel Miah</small>
-                                    <small class="text-black-50">03/08/22</small>
-                                </div>
-                            </div>
-                            <div class="text-center align-self-center">
-                               <p><span><i class="fa-regular fa-eye"></i></span><span>1.5M</span></p>
-                            </div>
-                            <div class="text-center align-self-center">
-                                <p><span><i class="fa-solid fa-star-half-stroke"></i></span><span><i class="fa-regular fa-star"></i></span><span><i class="fa-regular fa-star"></i></span><span><i class="fa-regular fa-star"></i></span></p>
-                            </div>
-                            <div class="text-center align-self-center">
-                                <button type="button" class="btn btn-primary">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-            </div>-->
