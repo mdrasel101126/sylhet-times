@@ -5,12 +5,11 @@ const loadNewsCategories = async () => {
     const data = await res.json();
     displayNewsCategories(data.data.news_category);
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 };
 
 const displayNewsCategories = (categories) => {
-  console.log(categories);
   const categoriesContainer = document.getElementById("categories-container");
   categories.forEach((category) => {
     const categoryDiv = document.createElement("div");
@@ -31,7 +30,7 @@ const loadNews = async (categoryId) => {
     const data = await res.json();
     displayNews(data.data);
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 };
 
@@ -43,7 +42,6 @@ const getValue = (value) => {
 };
 const getView = (value) => {
   value = parseInt(value);
-  // console.log(value);
   if (value >= 0) {
     return value;
   } else {
@@ -52,7 +50,6 @@ const getView = (value) => {
 };
 
 const displayNews = (allNews) => {
-  console.log(allNews);
   const newsNumber = document.getElementById("news-number");
   newsNumber.innerText = `Total ${allNews.length} news found`;
   const newsContainer = document.getElementById("news-container");
@@ -61,7 +58,6 @@ const displayNews = (allNews) => {
     return b.total_view - a.total_view;
   });
   allNews.forEach((news) => {
-    //console.log(news);
     const newsDiv = document.createElement("div");
     newsDiv.innerHTML = `
     <div class="row g-3 bg-white rounded my-3 shadow">
@@ -122,11 +118,10 @@ const loadDetails = async (newId) => {
     const data = await res.json();
     displayDetails(data.data[0]);
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 };
 const displayDetails = (detail) => {
-  console.log(detail);
   const showDetailModalLabel = document.getElementById("showDetailModalLabel");
   const modalBody = document.getElementById("modal-body");
   const publishedDate = document.getElementById("published-date");
