@@ -24,6 +24,7 @@ const displayNewsCategories = (categories) => {
 };
 
 const loadNews = async (categoryId) => {
+  toggleSpinner(true);
   const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
   try {
     const res = await fetch(url);
@@ -55,6 +56,7 @@ const displayNews = (allNews) => {
   const newsNumber = document.getElementById("news-number");
   newsNumber.innerText = `Total ${allNews.length} news found`;
   const newsContainer = document.getElementById("news-container");
+  newsContainer.innerHTML = "";
   allNews.sort((a, b) => {
     return b.total_view - a.total_view;
   });
@@ -110,6 +112,7 @@ const displayNews = (allNews) => {
     `;
     newsContainer.appendChild(newsDiv);
   });
+  toggleSpinner(false);
 };
 
 const loadDetails = async (newId) => {
@@ -129,7 +132,18 @@ const displayDetails = (detail) => {
   const publishedDate = document.getElementById("published-date");
   showDetailModalLabel.innerText = detail.title;
   modalBody.innerText = detail.details;
-  publishedDate.innerText = detail.author.published_date;
+  publishedDate.innerText = detail.author.published_date
+    ? detail.author.published_date
+    : "Unknown Date";
+};
+
+const toggleSpinner = (isLoading) => {
+  const spinnerDiv = document.getElementById("spinner");
+  if (isLoading) {
+    spinnerDiv.classList.remove("d-none");
+  } else {
+    spinnerDiv.classList.add("d-none");
+  }
 };
 
 loadNewsCategories();

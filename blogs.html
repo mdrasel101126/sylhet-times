@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/db06682d12.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+     <!-- header section  -->
+     <header class="container">
+        <nav class="navbar navbar-expand-lg bg-light m-3">
+            <div class="container-fluid">
+              <a href="index.html" class="navbar-brand"><span class="text-bg-primary rounded-2 px-3 py-2">Sylhet</span> <span class="text-primary">Times</span></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">News</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="blogs.html">Blogs</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                      </form>
+                </div>
+          </nav>
+          <hr>
+    </header>
+
+    <main>
+        <section class="container rounded">
+            <div>
+                <h4>Difference Between var , let and const</h4>
+                <p>
+                    The scope of a var variable is functional scope.The scope of a var variable is functional scope.It can be declared without initialization.It can be accessed without initialization as its default value is “undefined”.
+                </p>
+                <p>
+                    The scope of a let variable is block scope.It can be updated but cannot be re-declared into the scope.It can be declared without initialization.It cannot be accessed without initialization otherwise it will give ‘referenceError’.
+                </p>
+                <p>The scope of a const variable is block scope.It cannot be updated or re-declared into the scope.It cannot be declared without initialization.It cannot be accessed without initialization, as it cannot be declared without initialization.
+                </p>
+            </div>
+            <div>
+                <h4>Difference between Arrow function and Regular function</h4>
+                <p>Inside of a regular JavaScript function, this value (aka the execution context) is dynamic.The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there are 4 ways you can invoke a regular function.the regular function can easily construct objects.Inside the body of a regular function, arguments is a special array-like object containing the list of arguments with which the function has been invoked.</p>
+                <p>
+                    The behavior of this inside of an arrow function differs considerably from the regular function's this behavior. The arrow function doesn't define its own execution context.o matter how or where being executed, this value inside of an arrow function always equals this value from the outer function. In other words, the arrow function resolves this lexically.A consequence of this resolved lexically is that an arrow function cannot be used as a constructor. no arguments special keyword is defined inside an arrow function.
+                </p>
+            </div>
+            <div>
+                <h4>Difference between map , forEach, filter and find</h4>
+                <p>The map method receives a function as a parameter. Then it applies it on each element and returns an entirely new array populated with the results of calling the provided function.his means that it returns a new array that contains an image of each element of the array. It will always return the same number of items.Like map , the forEach() method receives a function as an argument and executes it once for each array element. However, instead of returning a new array like map, it returns undefined.The first difference between map() and forEach() is the returning value. The forEach() method returns undefined and map() returns a new array with the transformed elements. Even if they do the same job, the returning value remains different.</p>
+                <p>The find() method is used to find all the descendant elements of the selected element. It finds the element in the DOM tree by traversing through the root to leaf.The filter() method is used to filters all the elements and returns the element that matches and the element that do not match are removed.The only difference is the filter() method search through all the elements while find() method search through all the child elements only.</p>
+            </div>
+            <div>
+                <h4>Why do you use template strings?</h4>
+                <p>Before ES6, you use single quotes (') or double quotes (") to wrap a string literal. And the strings have very limited functionality.To enable you to solve more complex problems, ES6 template literals provide the syntax that allows you to work with strings more safely and cleanly.</p>
+                <p>You get the following features:</p>
+                <ul>
+                    <li>A multiline string: a string that can span multiple lines.</li>
+                    <li>tring formatting: the ability to substitute part of the string for the values of variables or expressions. This feature is also called string interpolation.</li>
+                    <li>HTML escaping: the ability to transform a string so that it is safe to include in HTML.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
